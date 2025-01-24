@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="7.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Infra\Victor.Movies.DataAccess\Victor.Movies.DataAccess.csproj" />
+    <ProjectReference Include="..\..\IOC\Victor.Movies.IOC\Victor.Movies.IOC.csproj" />
+  </ItemGroup>
+
+</Project>
