@@ -16,7 +16,7 @@
     @if (ViewBag.HideLayout == null || !(bool)ViewBag.HideLayout)
     {
         <!-- Navbar -->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <nav class="navbar navbar-expand-lg custom-navbar">
             <div class="container">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Victor Movies</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -29,9 +29,6 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" asp-area="" asp-controller="Movies" asp-action="List">Filmes</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-controller="Account" asp-action="Login">Login</a>
                         </li>
                     </ul>
                 </div>
@@ -47,7 +44,7 @@
     @if (ViewBag.HideLayout == null || !(bool)ViewBag.HideLayout)
     {
         <!-- Rodapé -->
-        <footer class="bg-dark text-light text-center py-3 mt-4">
+        <footer class="custom-footer">
             <div class="container">
                 <p>&copy; @DateTime.Now.Year - Victor Movies. Todos os direitos reservados.</p>
             </div>

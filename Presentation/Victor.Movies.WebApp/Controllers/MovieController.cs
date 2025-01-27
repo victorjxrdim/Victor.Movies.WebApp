@@ -14,10 +14,10 @@ namespace Victor.Movies.WebApi.Controllers
 
         #region Pages
         [HttpGet("")]
-        [HttpGet("Movie")]
-        public IActionResult Movie()
+        [HttpGet("Movies")]
+        public IActionResult Movies()
         {
-            return View("/Views/Home/Movie.cshtml");
+            return View("/Views/Home/Movies.cshtml");
         }
         #endregion
 
