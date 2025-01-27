@@ -1,5 +1,13 @@
 ﻿@{
+    ViewBag.HideLayout = true;
+    Layout = "~/Views/Shared/_Layout.cshtml";
     ViewData["Title"] = "Página Inicial";
 }
-<h1>Bem-vindo ao Victor Movies!</h1>
-<p>Agora sua aplicação pode renderizar Views!</p>
+
+<link rel="stylesheet" href="~/css/views/home.css" />
+
+<div class="container">
+    <h1>Victor Movies!</h1>
+    <p>Explore nossos conteúdos e aproveite!</p>
+    <a href="/Movie/Movie" class="btn btn-light">Ir para outra página</a>
+</div>

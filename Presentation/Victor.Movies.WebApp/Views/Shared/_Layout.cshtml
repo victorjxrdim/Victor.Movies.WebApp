@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>@ViewData["Title"] - Victor Movies</title>
+
+    <!-- Importação do Bootstrap -->
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/shared/_layout.css" />
+
+    @RenderSection("Styles", required: false)
+</head>
+<body>
+
+    @if (ViewBag.HideLayout == null || !(bool)ViewBag.HideLayout)
+    {
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Victor Movies</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Movies" asp-action="List">Filmes</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Account" asp-action="Login">Login</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    }
+
+    <!-- Conteúdo da Página -->
+    <div class="container mt-4">
+        @RenderBody()
+    </div>
+
+    @if (ViewBag.HideLayout == null || !(bool)ViewBag.HideLayout)
+    {
+        <!-- Rodapé -->
+        <footer class="bg-dark text-light text-center py-3 mt-4">
+            <div class="container">
+                <p>&copy; @DateTime.Now.Year - Victor Movies. Todos os direitos reservados.</p>
+            </div>
+        </footer>
+    }
+
+    <!-- Scripts -->
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js"></script>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

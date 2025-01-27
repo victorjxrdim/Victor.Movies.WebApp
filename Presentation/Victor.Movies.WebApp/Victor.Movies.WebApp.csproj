@@ -15,4 +15,8 @@
     <ProjectReference Include="..\..\IOC\Victor.Movies.IOC\Victor.Movies.IOC.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\js\views\home\" />
+  </ItemGroup>
+
 </Project>

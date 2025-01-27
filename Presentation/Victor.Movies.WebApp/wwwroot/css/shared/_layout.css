@@ -1,0 +1,30 @@
+.custom-navbar {
+    background: rgba(38, 37, 68, 0.9);
+    backdrop-filter: blur(10px);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.navbar-brand {
+    font-weight: bold;
+    color: white !important;
+}
+
+.navbar-nav .nav-link {
+    color: rgba(255, 255, 255, 0.8) !important;
+    transition: color 0.3s ease;
+}
+
+    .navbar-nav .nav-link:hover {
+        color: #ffcc00 !important;
+    }
+
+.custom-footer {
+    background: rgba(38, 37, 68, 0.9);
+    backdrop-filter: blur(10px);
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
