@@ -1,7 +1,33 @@
 .custom-navbar {
-    background: rgba(38, 37, 68, 0.9);
+    background: linear-gradient(135deg, #2b5876, #4e4376);
     backdrop-filter: blur(10px);
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    color: white;
+    width: 100%;
+    position: fixed;
+    left: 0;
+    z-index: 1000;
+}
+
+.custom-footer {
+    background: linear-gradient(135deg, #2b5876, #4e4376);
+    backdrop-filter: blur(10px);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    color: white;
+    width: 100%;
+    left: 0;
+    z-index: 1000;
+    bottom: 0;
+    text-align: center;
+    padding: 15px 0;
+}
+
+.custom-navbar {
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
 }
 
 .navbar-brand {
@@ -9,22 +35,17 @@
     color: white !important;
 }
 
-.navbar-nav .nav-link {
-    color: rgba(255, 255, 255, 0.8) !important;
-    transition: color 0.3s ease;
+.navbar-nav {
+    display: flex;
+    gap: 15px;
 }
 
-    .navbar-nav .nav-link:hover {
-        color: #ffcc00 !important;
+    .navbar-nav .nav-link {
+        color: rgba(255, 255, 255, 0.8) !important;
+        text-decoration: none;
+        transition: color 0.3s ease;
     }
 
-.custom-footer {
-    background: rgba(38, 37, 68, 0.9);
-    backdrop-filter: blur(10px);
-    color: white;
-    text-align: center;
-    padding: 15px 0;
-    position: relative;
-    width: 100%;
-    bottom: 0;
-}
+        .navbar-nav .nav-link:hover {
+            color: #ffcc00 !important;
+        }

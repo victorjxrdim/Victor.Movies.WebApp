@@ -1,17 +1,14 @@
 ﻿@{
     Layout = "~/Views/Shared/_Layout.cshtml";
-    ViewData["Title"] = "Movie List";
+    ViewData["Title"] = "Catálogo de Filmes";
 }
 
 <link rel="stylesheet" href="~/css/views/movie.css" />
 
-<div class="container movie-container">
-    <h1 class="movie-title">Título do Filme</h1>
-    <div class="card movie-card">
-        <img src="https://t4.ftcdn.net/jpg/02/66/72/41/360_F_266724172_Iy8gdKgMa7XmrhYYxLCxyhx6J7070Pr8.jpg" class="card-img-top" alt="Poster do Filme">
-        <div class="card-body">
-            <h5 class="card-title">Ano de Lançamento: <span class="movie-year">2024</span></h5>
-            <p class="card-text">Diretor: <span class="movie-director">Nome do Diretor</span></p>
-        </div>
+<main class="main-content">
+    <h1 class="movie-catalog">🎬 Catálogo de Filmes</h1>
+    <div class="movie-list" id="movie-list">
     </div>
-</div>
+</main>
+
+<script src="~/js/views/home/movie.js"></script>

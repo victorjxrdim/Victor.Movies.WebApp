@@ -68,7 +68,7 @@ namespace Victor.Movies.WebApi.Controllers
 
                 var allMoviesInformationList = movieAppService.ListMovieInformations();
 
-                return Ok(allMoviesInformationList);
+                return Json(allMoviesInformationList);
             }
         }
 
