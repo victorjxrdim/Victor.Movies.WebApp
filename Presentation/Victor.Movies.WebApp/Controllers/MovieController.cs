@@ -45,30 +45,25 @@ namespace Victor.Movies.WebApi.Controllers
             }
         }
 
-
-        [HttpGet("GetAllMovies")]
-        public IActionResult GetAllMovies()
-        {
-            using (var scope = _serviceProvider.CreateScope())
-            {
-                var movieAppService = scope.ServiceProvider.GetRequiredService<IMovieAppService>();
-
-                var allMoviesList = movieAppService.GetAllMovies();
-
-                return Ok(allMoviesList);
-            }
-        }
-
         [HttpGet("ListMovieInformations")]
-        public IActionResult ListMovieInformations()
+        [HttpGet("ListMovieInformationById/{id}")]
+        public IActionResult ListMovieInformations(int? id = null)
         {
             using (var scope = _serviceProvider.CreateScope())
             {
                 var movieAppService = scope.ServiceProvider.GetRequiredService<IMovieAppService>();
 
-                var allMoviesInformationList = movieAppService.ListMovieInformations();
+                var allMoviesInformationList = movieAppService.ListMovieInformations(id);
 
-                return Json(allMoviesInformationList);
+                if(id != null)
+                {
+                    return PartialView("/Views/Home/_ModalMoreInformation.cshtml", allMoviesInformationList.FirstOrDefault(x => x.MovieId == id));
+
+                }
+                else
+                {
+                    return Json(allMoviesInformationList);
+                }
             }
         }
 
@@ -81,7 +76,7 @@ namespace Victor.Movies.WebApi.Controllers
 
                 var movieFilterList = movieAppService.MovieFilter(gender, director, movie, year);
 
-                return Ok(movieFilterList);
+                return Json(movieFilterList);
             }
         }
         #endregion

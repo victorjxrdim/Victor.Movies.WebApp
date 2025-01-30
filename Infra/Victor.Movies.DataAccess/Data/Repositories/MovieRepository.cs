@@ -14,26 +14,8 @@ namespace Victor.Movies.DataAccess.Data.Repositories
         {
             _conn = connection;
         }
-        public IEnumerable<Filme> GetAllMovies()
-        {
-            using (var connection = _conn.GetConnection())
-            {
-                var builder = new SqlBuilder();
-
-                var query = builder.AddTemplate(@"SELECT 
-                                                    F.MOVIE_ID AS MovieId, 
-                                                    F.MOVIE_NAME AS MovieName, 
-                                                    F.MOVIE_YEAR AS MovieYear, 
-                                                    F.MOVIE_DIRECTOR AS MovieDirector, 
-                                                    F.MOVIE_IMG AS MovieImg, 
-                                                    F.GENDER_ID AS GenderId  
-                                                FROM FILMES F");
-
-                return connection.Query<Filme>(query.RawSql);
-            }
-        }
-
-        public IEnumerable<CompleteMovieDTO> ListMovieInformations()
+       
+        public IEnumerable<CompleteMovieDTO> ListMovieInformations(int? id = null)
         {
             using (var connection = _conn.GetConnection())
             {
@@ -41,10 +23,15 @@ namespace Victor.Movies.DataAccess.Data.Repositories
 
                 var query = builder.AddTemplate(@"SELECT 
                                                   F.MOVIE_ID as MovieId, F.MOVIE_NAME as MovieName, F.MOVIE_YEAR as MovieYear, F.MOVIE_IMG as MovieImg, G.GENDER as Gender, D.NOME as Nome
-                                                  FROM FILMES F /**innerjoin**/");
+                                                  FROM FILMES F /**innerjoin**/ /**where**/");
 
                 builder.InnerJoin($"DIRETOR D ON D.ID = F.MOVIE_DIRECTOR");
                 builder.InnerJoin($"GENEROS G ON G.GENDER_ID = F.GENDER_ID");
+
+                if(id != null)
+                {
+                    builder.Where($"F.MOVIE_ID = {id}");
+                }
 
                 return connection.Query<CompleteMovieDTO>(query.RawSql);
             }

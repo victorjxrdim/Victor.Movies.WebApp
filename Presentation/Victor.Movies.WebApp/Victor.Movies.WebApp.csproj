@@ -24,7 +24,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="wwwroot\js\views\home\movie.js" />
+    <None Include="wwwroot\js\views\home\Movie.js" />
   </ItemGroup>
 
 </Project>

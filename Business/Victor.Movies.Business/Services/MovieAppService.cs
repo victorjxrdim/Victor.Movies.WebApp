@@ -14,33 +14,13 @@ namespace Victor.Movies.Business.Services
             _serviceProvider = serviceProvider;
         }
 
-        public IEnumerable<FilmeViewModel> GetAllMovies()
+        public IEnumerable<CompleteMovieDTO> ListMovieInformations(int? id = null)
         {
             using (var scope = _serviceProvider.CreateScope())
             {
                 var movieRepository = scope.ServiceProvider.GetRequiredService<IMovieRepository>();
 
-                var allMoviesList = movieRepository.GetAllMovies();
-
-                return allMoviesList.Select(m => new FilmeViewModel
-                {
-                    MovieId = m.MovieId,
-                    MovieName = m.MovieName,
-                    MovieYear = m.MovieYear,
-                    MovieDirector = m.MovieDirector,
-                    MovieImg = m.MovieImg,
-                    GenderId = m.GenderId,
-                });
-            }
-        }
-
-        public IEnumerable<CompleteMovieDTO> ListMovieInformations()
-        {
-            using (var scope = _serviceProvider.CreateScope())
-            {
-                var movieRepository = scope.ServiceProvider.GetRequiredService<IMovieRepository>();
-
-                var allMoviesList = movieRepository.ListMovieInformations();
+                var allMoviesList = movieRepository.ListMovieInformations(id);
 
                 return allMoviesList.Select(m => new CompleteMovieDTO
                 {

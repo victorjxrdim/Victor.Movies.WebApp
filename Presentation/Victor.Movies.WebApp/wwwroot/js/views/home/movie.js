@@ -24,7 +24,7 @@
                                 <i class="bi bi-person-video2"></i> Diretor:
                                 <span class="movie-director">${movie.nome}</span>
                             </p>
-                            <button class="btn-more-info">Mais Informações</button>
+                            <button class="btn-more-info" onclick="MoreInformation(${movie.movieId})">Mais Informações</a>
                         </div>
                     </div>
                 `;
@@ -35,3 +35,20 @@
             console.error("Erro ao requisitar dados", error);
         });
 });
+
+let MoreInformation = async (movieId) => {
+    try {
+        let response = await fetch(`/Movie/ListMovieInformationById/${movieId}`);
+        if (!response.ok) {
+            throw new Error(`Erro na requisição: ${response.statusText}`);
+        }
+        let data = await response.text();
+        document.getElementById("modal-content").innerHTML = data;
+        document.getElementById("autoModal").style.display = 'block';
+    } catch (error) {
+        console.error('Erro na requisição:', error);
+    }
+};
+
+
+

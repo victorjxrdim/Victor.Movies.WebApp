@@ -5,8 +5,7 @@ namespace Victor.Movies.DataAccess.Interfaces
 {
     public interface IMovieRepository 
     {
-        IEnumerable<Filme> GetAllMovies();
-        IEnumerable<CompleteMovieDTO> ListMovieInformations();
+        IEnumerable<CompleteMovieDTO> ListMovieInformations(int? id = null);
         IEnumerable<CompleteMovieDTO> MovieFilter(string? gender = null, string? director = null, string? movie = null, int? year = null);
     }
 }
