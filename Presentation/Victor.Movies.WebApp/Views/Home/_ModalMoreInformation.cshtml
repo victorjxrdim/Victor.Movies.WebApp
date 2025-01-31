@@ -1,7 +1,16 @@
 ﻿@model Victor.Movies.Business.DTOs.CompleteMovieDTO
+@{
+    ViewBag.MovieModal = true;
+}
+
+<link rel="stylesheet" href="~/css/views/_ModalMoreInformation.css" />
 
 <div>
-    <h5>@Model.MovieName</h5>
-    <p>Ano: @Model.MovieYear</p>
-    <p>Diretor: @Model.Nome</p>
+    <h5 class="movie-title-modal">@Model.MovieName</h5>
+    <p class="movie-year-modal">Ano: @Model.MovieYear</p>
+    <p class="movie-director-modal">Diretor: @Model.Nome</p>
+    <p class="movie-description-modal">Descrição: @Model.Description</p>
+    <div class="video-container">
+        <iframe id="movieTrailer" width="100%" height="315" frameborder="0" allowfullscreen src="@Model.Trailer.Replace("watch?v=","embed/")"></iframe>
+    </div>
 </div>

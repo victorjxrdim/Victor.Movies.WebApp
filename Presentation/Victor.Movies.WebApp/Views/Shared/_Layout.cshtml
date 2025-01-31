@@ -4,7 +4,6 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <!-- Importação do Bootstrap -->
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/shared/_layout.css" />
 
@@ -14,7 +13,6 @@
 
     @if (ViewBag.HideLayout == null || !(bool)ViewBag.HideLayout)
     {
-        <!-- Navbar -->
         <nav class="navbar navbar-expand-lg custom-navbar">
             <div class="container">
                 <a class="navbar-brand" href="/Home/Index">Victor Movies</a>
@@ -35,14 +33,12 @@
         </nav>
     }
 
-    <!-- Conteúdo da Página -->
     <div class="container mt-4">
         @RenderBody()
     </div>
 
     @if (ViewBag.HideLayout == null || !(bool)ViewBag.HideLayout)
     {
-        <!-- Rodapé -->
         <footer class="custom-footer">
             <div class="container">
                 <p>&copy; @DateTime.Now.Year - Victor Movies. Todos os direitos reservados.</p>
@@ -50,8 +46,31 @@
         </footer>
     }
 
-    <!-- Scripts -->
+    @if (ViewBag.MovieModal == null || (bool)ViewBag.MovieModal)
+    {
+        <div class="modal fade" id="movieModal" tabindex="-1" aria-labelledby="movieModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="movieModalLabel">Mais Informações</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body" id="movieModalBody">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+    @if (ViewBag.MovieModal == null || (bool)ViewBag.MovieModal)
+    {
+        <script src="~/js/views/home/_ModalMoreInformation.js"></script>
+    }
 
     @RenderSection("Scripts", required: false)
 </body>

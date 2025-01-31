@@ -16,6 +16,8 @@ namespace Victor.Movies.DataAccess.Data.Mappings
             b.Property(x => x.MovieDirector).HasColumnName("MOVIE_DIRECTOR");
             b.Property(x => x.MovieImg).HasColumnName("MOVIE_IMG");
             b.Property(x => x.GenderId).HasColumnName("GENDER_ID");
+            b.Property(x => x.Description).HasColumnName("DESCRIPTION");
+            b.Property(x => x.Trailer).HasColumnName("TRAILER");
         }
     }
 }

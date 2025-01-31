@@ -30,6 +30,8 @@ namespace Victor.Movies.Business.Services
                     MovieImg = m.MovieImg,
                     Gender = m.Gender,
                     Nome = m.Nome,
+                    Description = m.Description,
+                    Trailer = m.Trailer,
                 });
             }
         }
@@ -50,6 +52,8 @@ namespace Victor.Movies.Business.Services
                     MovieImg = m.MovieImg,
                     Gender = m.Gender,
                     Nome = m.Nome,
+                    Description = m.Description,
+                    Trailer= m.Trailer,
                 });
             }
         }

@@ -15,4 +15,6 @@ public partial class Filme
     public string MovieImg { get; set; }
 
     public int? GenderId { get; set; }
+    public string Description { get; set; }
+    public string Trailer { get; set; }
 }

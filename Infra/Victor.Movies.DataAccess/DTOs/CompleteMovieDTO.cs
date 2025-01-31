@@ -14,5 +14,7 @@ namespace Victor.Movies.DataAccess.DTOs
         public string MovieImg { get; set; }
         public string? Gender { get; set; }
         public string? Nome { get; set; }
+        public string? Description { get; set; }
+        public string? Trailer { get; set; }
     }
 }

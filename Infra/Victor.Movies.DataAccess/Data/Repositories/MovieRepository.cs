@@ -22,7 +22,8 @@ namespace Victor.Movies.DataAccess.Data.Repositories
                 var builder = new SqlBuilder();
 
                 var query = builder.AddTemplate(@"SELECT 
-                                                  F.MOVIE_ID as MovieId, F.MOVIE_NAME as MovieName, F.MOVIE_YEAR as MovieYear, F.MOVIE_IMG as MovieImg, G.GENDER as Gender, D.NOME as Nome
+                                                  F.MOVIE_ID as MovieId, F.MOVIE_NAME as MovieName, F.MOVIE_YEAR as MovieYear, F.MOVIE_IMG as MovieImg, G.GENDER as Gender, D.NOME as Nome, 
+                                                  F.DESCRIPTION as Description, F.TRAILER as Trailer
                                                   FROM FILMES F /**innerjoin**/ /**where**/");
 
                 builder.InnerJoin($"DIRETOR D ON D.ID = F.MOVIE_DIRECTOR");
@@ -44,8 +45,9 @@ namespace Victor.Movies.DataAccess.Data.Repositories
                 var builder = new SqlBuilder();
 
                 var query = builder.AddTemplate(@"SELECT 
-                                                  F.MOVIE_ID as MovieId, F.MOVIE_NAME as MovieName, F.MOVIE_YEAR as MovieYear, F.MOVIE_IMG as MovieImg, G.GENDER as Gender, D.NOME as Nome
-                                                  FROM FILMES F /**innerjoin**/");
+                                                  F.MOVIE_ID as MovieId, F.MOVIE_NAME as MovieName, F.MOVIE_YEAR as MovieYear, F.MOVIE_IMG as MovieImg, G.GENDER as Gender, D.NOME as Nome, 
+                                                  F.DESCRIPTION as Description, F.TRAILER as Trailer
+                                                  FROM FILMES F /**innerjoin**/ /**where**/");
 
                 builder.InnerJoin($"DIRETOR D ON D.ID = F.MOVIE_DIRECTOR");
                 builder.InnerJoin($"GENEROS G ON G.GENDER_ID = F.GENDER_ID");
