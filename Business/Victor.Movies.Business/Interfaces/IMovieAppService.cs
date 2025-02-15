@@ -6,7 +6,7 @@ namespace Victor.Movies.Business.Interfaces
 {
     public interface IMovieAppService
     {
-        IEnumerable<CompleteMovieDTO> ListMovieInformations(int? id = null);
-        IEnumerable<CompleteMovieDTO> MovieFilter(string? gender = null, string? director = null, string? movie = null, int? year = null);
+        Task<IEnumerable<CompleteMovieDTO>> ListMovieInformations(int? id = null);
+        Task<IEnumerable<CompleteMovieDTO>> MovieFilter(string? gender = null, string? director = null, string? movie = null, int? year = null);
     }
 }

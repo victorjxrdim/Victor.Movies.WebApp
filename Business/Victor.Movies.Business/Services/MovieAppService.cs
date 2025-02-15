@@ -14,13 +14,13 @@ namespace Victor.Movies.Business.Services
             _serviceProvider = serviceProvider;
         }
 
-        public IEnumerable<CompleteMovieDTO> ListMovieInformations(int? id = null)
+        public async Task<IEnumerable<CompleteMovieDTO>> ListMovieInformations(int? id = null)
         {
             using (var scope = _serviceProvider.CreateScope())
             {
                 var movieRepository = scope.ServiceProvider.GetRequiredService<IMovieRepository>();
 
-                var allMoviesList = movieRepository.ListMovieInformations(id);
+                var allMoviesList = await movieRepository.ListMovieInformations(id);
 
                 return allMoviesList.Select(m => new CompleteMovieDTO
                 {
@@ -36,13 +36,13 @@ namespace Victor.Movies.Business.Services
             }
         }
 
-        public IEnumerable<CompleteMovieDTO> MovieFilter(string? gender = null, string? director = null, string? movie = null, int? year = null)
+        public async Task<IEnumerable<CompleteMovieDTO>> MovieFilter(string? gender = null, string? director = null, string? movie = null, int? year = null)
         {
             using (var scope = _serviceProvider.CreateScope())
             {
                 var movieRepository = scope.ServiceProvider.GetRequiredService<IMovieRepository>();
 
-                var allMoviesList = movieRepository.ListMovieInformations();
+                var allMoviesList = await movieRepository.ListMovieInformations();
 
                 return allMoviesList.Select(m => new CompleteMovieDTO
                 {

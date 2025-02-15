@@ -13,12 +13,12 @@ namespace Victor.Movies.Business.Services
             _serviceProvider = serviceProvider;
         }
 
-        public IEnumerable<DiretorViewModel> GetAllDirectors()
+        public async Task<IEnumerable<DiretorViewModel>> GetAllDirectors()
         {
             using (var scope = _serviceProvider.CreateScope())
             {
                 var diretorRepository = scope.ServiceProvider.GetRequiredService<IDirectorRepository>();
-                var directors = diretorRepository.GetAllDirectors();
+                var directors = await diretorRepository.GetAllDirectors();
 
                 return directors.Select(d => new DiretorViewModel
                 {
@@ -28,12 +28,12 @@ namespace Victor.Movies.Business.Services
             }
         }
 
-        public IEnumerable<DiretorViewModel> ListById(int? id)
+        public async Task<IEnumerable<DiretorViewModel>> ListById(int? id)
         {
             using (var scope = _serviceProvider.CreateScope())
             {
                 var diretorRepository = scope.ServiceProvider.GetRequiredService<IDirectorRepository>();
-                var directorById = diretorRepository.ListById(id);
+                var directorById = await diretorRepository.ListById(id);
 
                 return directorById.Select(d => new DiretorViewModel
                 {

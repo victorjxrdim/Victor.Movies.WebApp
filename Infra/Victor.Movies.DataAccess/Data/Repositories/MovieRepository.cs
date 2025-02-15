@@ -15,7 +15,7 @@ namespace Victor.Movies.DataAccess.Data.Repositories
             _conn = connection;
         }
        
-        public IEnumerable<CompleteMovieDTO> ListMovieInformations(int? id = null)
+        public async Task<IEnumerable<CompleteMovieDTO>> ListMovieInformations(int? id = null)
         {
             using (var connection = _conn.GetConnection())
             {
@@ -34,11 +34,11 @@ namespace Victor.Movies.DataAccess.Data.Repositories
                     builder.Where($"F.MOVIE_ID = {id}");
                 }
 
-                return connection.Query<CompleteMovieDTO>(query.RawSql);
+                return await connection.QueryAsync<CompleteMovieDTO>(query.RawSql);
             }
         }
 
-        public IEnumerable<CompleteMovieDTO> MovieFilter(string? gender = null, string? director = null, string? movie = null, int? year = null)
+        public async Task<IEnumerable<CompleteMovieDTO>> MovieFilter(string? gender = null, string? director = null, string? movie = null, int? year = null)
         {
             using (var connection = _conn.GetConnection())
             {
@@ -72,7 +72,7 @@ namespace Victor.Movies.DataAccess.Data.Repositories
                     builder.Where($"F.MOVIE_YEAR = {year}");
                 }
 
-                return connection.Query<CompleteMovieDTO>(query.RawSql);
+                return await connection.QueryAsync<CompleteMovieDTO>(query.RawSql);
             }
         }
     }

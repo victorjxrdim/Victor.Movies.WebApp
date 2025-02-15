@@ -24,7 +24,7 @@ namespace Victor.Movies.WebApi.Controllers
         #region API's
         [HttpGet("ListById/{id}")]
         [HttpGet("GetAllDirectors")]
-        public IActionResult GetAllDirectors(int? id = null)
+        public async Task<IActionResult> GetAllDirectors(int? id = null)
         {
             using (var scope = _serviceProvider.CreateScope())
             {
@@ -32,13 +32,13 @@ namespace Victor.Movies.WebApi.Controllers
 
                 if(id != null)
                 {
-                    var directorListById = diretorAppService.ListById(id);
+                    var directorListById = await diretorAppService.ListById(id);
                     
                     return Ok(directorListById);
                 }
                 else
                 {
-                    var directorList = diretorAppService.GetAllDirectors();
+                    var directorList = await diretorAppService.GetAllDirectors();
 
                     return Ok(directorList);
                 }
@@ -47,13 +47,13 @@ namespace Victor.Movies.WebApi.Controllers
 
         [HttpGet("ListMovieInformations")]
         [HttpGet("ListMovieInformationById/{id}")]
-        public IActionResult ListMovieInformations(int? id = null)
+        public async Task<IActionResult> ListMovieInformations(int? id = null)
         {
             using (var scope = _serviceProvider.CreateScope())
             {
                 var movieAppService = scope.ServiceProvider.GetRequiredService<IMovieAppService>();
 
-                var allMoviesInformationList = movieAppService.ListMovieInformations(id);
+                var allMoviesInformationList = await movieAppService.ListMovieInformations(id);
 
                 if(id != null)
                 {

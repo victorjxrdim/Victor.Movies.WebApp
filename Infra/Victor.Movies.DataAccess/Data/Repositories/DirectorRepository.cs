@@ -14,7 +14,7 @@ namespace Victor.Movies.DataAccess.Data.Repositories
             _conn = connection;
         }
 
-        public IEnumerable<Diretor> GetAllDirectors()
+        public async Task<IEnumerable<Diretor>> GetAllDirectors()
         {
             using (var connection = _conn.GetConnection())
             {
@@ -22,11 +22,11 @@ namespace Victor.Movies.DataAccess.Data.Repositories
 
                 var query = builder.AddTemplate(@"SELECT * FROM DIRETOR D");
 
-                return connection.Query<Diretor>(query.RawSql);
+                return await connection.QueryAsync<Diretor>(query.RawSql);
             }
         }
 
-        public IEnumerable<Diretor> ListById(int? id)
+        public async Task<IEnumerable<Diretor>> ListById(int? id)
         {
             using (var connection = _conn.GetConnection())
             {
@@ -36,7 +36,7 @@ namespace Victor.Movies.DataAccess.Data.Repositories
 
                 builder.Where($"D.ID = {id}");
 
-                return connection.Query<Diretor>(query.RawSql);
+                return await connection.QueryAsync<Diretor>(query.RawSql);
             }
         }
     }

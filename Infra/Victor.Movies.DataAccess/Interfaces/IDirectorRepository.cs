@@ -4,7 +4,7 @@ namespace Victor.Movies.DataAccess.Interfaces
 {
     public interface IDirectorRepository
     {
-        IEnumerable<Diretor> GetAllDirectors();
-        IEnumerable<Diretor> ListById(int? id);
+        Task<IEnumerable<Diretor>> GetAllDirectors();
+        Task<IEnumerable<Diretor>> ListById(int? id);
     }
 }

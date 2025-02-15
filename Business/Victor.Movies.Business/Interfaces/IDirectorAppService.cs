@@ -4,7 +4,7 @@ namespace Victor.Movies.Business.Interfaces
 {
     public interface IDirectorAppService
     {
-        IEnumerable<DiretorViewModel> GetAllDirectors();
-        IEnumerable<DiretorViewModel> ListById(int? id);
+        Task<IEnumerable<DiretorViewModel>> GetAllDirectors();
+        Task<IEnumerable<DiretorViewModel>> ListById(int? id);
     }
 }
