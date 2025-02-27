@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="wwwroot\js\Scripts.js" />
     <Content Remove="wwwroot\js\views\home\movie.js" />
     <Content Remove="wwwroot\js\views\home\_ModalMoreInformation.js" />
   </ItemGroup>
@@ -25,6 +26,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="wwwroot\js\Scripts.js" />
     <None Include="wwwroot\js\views\home\_ModalMoreInformation.js" />
     <None Include="wwwroot\js\views\home\Movie.js" />
   </ItemGroup>

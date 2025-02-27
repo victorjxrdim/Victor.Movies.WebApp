@@ -1,4 +1,8 @@
-﻿document.addEventListener("DOMContentLoaded", () => {
+﻿document.addEventListener("DOMContentLoaded", async () => {
+    BlockElement();
+
+    await Delay(1000);
+
     fetch("/Movie/ListMovieInformations")
         .then(response => response.json())
         .then(data => {
@@ -30,8 +34,11 @@
                 `;
                 movieCatalogList.innerHTML += movieCatalogItem;
             });
+
+            UnblockElement();
         })
         .catch(error => {
             console.error("Erro ao requisitar dados", error);
+            UnblockElement(); 
         });
 });
