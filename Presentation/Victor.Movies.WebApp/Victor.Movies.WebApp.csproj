@@ -22,7 +22,7 @@
   <ItemGroup>
     <None Include="wwwroot\js\Scripts.js" />
     <None Include="wwwroot\js\views\home\_ModalMoreInformation.js" />
-    <None Include="wwwroot\js\views\home\Movie.js" />
+    <None Include="wwwroot\js\views\home\movie.js" />
   </ItemGroup>
 
 </Project>
